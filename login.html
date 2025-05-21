@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoRide - Connexion</title>
+  <link href="https://fonts.googleapis.com/css2?family=NTR&family=Nunito&family=Anton&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background-color: #80e5ff;
+      color: #000;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    header, footer {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'NTR', sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+    }
+
+    nav.menu a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      margin-left: 1.5rem;
+    }
+
+    nav.menu a:hover, nav.menu a.active {
+      text-decoration: underline;
+    }
+
+    .burger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .burger span {
+      width: 24px;
+      height: 2px;
+      background-color: black;
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 90%;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .container h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, button {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007acc;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #006bb3;
+    }
+
+    .signup-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .signup-link a {
+      color: #007acc;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #b3f0ff; /* même fond que footer de avis.html */
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer a,
+    footer a:visited {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+      .burger {
+        display: flex;
+      }
+
+      nav.menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #fff;
+        padding: 1rem;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+
+      nav.menu.show {
+        display: flex;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+
+    .test-btn {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: 'Nunito', sans-serif;
+      width: fit-content;
+      margin: 1rem auto;
+    }
+
+    .test-btn:hover {
+      background-color: #006bb3;
+    }
+
+    .test-message {
+      display: none;
+      text-align: center;
+      margin: 0 auto 1rem auto;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 400px;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    function afficherMessageTest() {
+      document.getElementById("messageTest").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">ECORIDE</a>
+  <div class="burger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="menu" class="menu">
+    <a href="index.html">Accueil</a>
+    <a href="covoiturages.html">Covoiturages</a>
+    <a href="avis.html">Avis</a>
+    <a href="login.html" class="active">Connexion</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Connexion</h2>
+  <form action="/ecoride/backend/login.php" method="POST">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+    <button type="submit">Se connecter</button>
+  </form>
+
+  <div class="signup-link">
+    <p>Pas encore de compte ? <a href="register.php">Inscrivez-vous</a></p>
+    <p>ADMIN ? <a href="admin.php">Se connecter</a></p>
+    <p>EMPLOYÉ ? <a href="employé-espace.php">Se connecter</a></p>
+  </div>
+</div>
+
+
+<button class="test-btn" onclick="afficherMessageTest()">Test</button>
+<div id="messageTest" class="test-message">
+  Bienvenu ! Voici mon adresse mail et le mot de passe pour tester ma plateforme EcoRide :<br><br>
+  <strong>Email :</strong> yala.dalil50@gmail.com<br>
+  <strong>Mot de passe :</strong> 12345678
+</div>
+
+
+<footer>
+  <a href="contact.html">Contact</a>
+  <a href="mentions-legales.html">Mentions légales</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+/* Fonts */
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background-color: #80e5ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  font-family: 'NTR', sans-serif;
+  position: relative;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  text-decoration: none;
+  color: black;
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+
+.burger {
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 1.3rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+}
+
+.nav-links a.active {
+  color: #007acc;
+}
+
+/* Main content */
+main.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* Forms / Boxes */
+.search-box, .form-box {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.search-box h2,
+.form-box h2 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.search-box form,
+.form-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-box input,
+.search-box button,
+.form-box input,
+.form-box button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  height: 45px;
+}
+
+.search-box button,
+.form-box button {
+  background-color: #45b58d;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.search-box .dates {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Footer */
+footer {
+  background-color: #b3f0ff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'NTR', sans-serif;
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #b3f0ff;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 10;
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  main.content {
+    padding: 1rem;
+  }
+
+  .column img {
+    width: 45%;
+  }
+}
